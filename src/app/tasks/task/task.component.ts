@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { WebApiService } from '../services/web-api.service';
+import { WebApiService } from '../../services/web-api.service';
 import * as moment from 'moment';
 import { finalize } from 'rxjs';
 import { TaskComponentDialog } from '../dialog/task/task.component.dialog';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { HandleAppService } from '../services/handle-app.service';
+import { HandleAppService } from '../../services/handle-app.service';
 
 @Component({
   selector: 'app-task',
