@@ -1,0 +1,11 @@
+.container{
+    display: block;
+    min-height: calc( 100vh - 160px );
+}
+span.develop-by {
+    font-size: 12px;
+    float: right;
+    margin: 5px 20px;
+    color: #636363;
+    font-weight: 300;
+}

@@ -1,0 +1,87 @@
+<div class="container-header-dialog">
+    <h2 mat-dialog-title class="title-dialog">{{title}}</h2>
+    <span (click)="dialogClose()" class="material-symbols-outlined dialog-close">
+        close
+    </span>   
+</div>
+<mat-dialog-content>
+    <div class="row" *ngIf="view == 'view'">
+        <div class="col-md-6">
+            <dt>Tarea:</dt>
+            <dd>{{task.taskName}}</dd>
+        </div>
+        <div class="col-md-6">
+            <dt>Estado:</dt>
+            <dd>{{task.status}}</dd>
+        </div>
+        <div class="col-md-6">
+            <dt>Empleado asignado:</dt>
+            <dd>{{task.employee.name}}</dd>
+        </div>
+        <div class="col-md-6">
+            <dt>Fecha de ejecución:</dt>
+            <dd>{{task.execution}}</dd>
+        </div>
+        <div class="col-md-12">
+            <dt>Descripción:</dt>
+            <dd>{{task.description}}</dd>
+        </div>
+        <div class="col-md-6">
+            <dt>Fecha de creación:</dt>
+            <dd>{{task.createdAt}}</dd>
+        </div>
+    </div>
+    <div class="row" *ngIf="view == 'create' || view == 'update'">
+        <form [formGroup]="formTask">
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field>
+                        <mat-label>Tarea</mat-label>
+                        <input formControlName="taskName" matInput #input maxlength="60" placeholder="Tarea">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field>
+                        <mat-label>Asignar empleado</mat-label>
+                        <mat-select formControlName="employeeId" name="employee">
+                            <mat-option *ngFor="let employee of employees" [value]="employee.id">
+                            {{employee.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field>
+                        <mat-label>Fecha y Hora de ejecución</mat-label>
+                        <input matInput type="datetime-local" formControlName="execution" placeholder="01/01/2022">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6" *ngIf="view == 'update'">
+                    <mat-form-field>
+                        <mat-label>Estado</mat-label>
+                        <mat-select formControlName="status">
+                            <mat-option *ngFor="let state of status" [value]="state.id">
+                            {{state.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-12">
+                    <mat-form-field>
+                        <mat-label>Descripción</mat-label>
+                        <textarea style="min-height:60px;" matInput formControlName="description" placeholder="Descripción de la tarea"></textarea>
+                    </mat-form-field>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <div class="d-block m-auto text-center">
+        <button mat-button mat-dialog-close class="btn-dialog btn-cancel-dialog">Cancel</button>
+        <button mat-button class="btn-dialog btn-accept-dialog" *ngIf="view=='create'" (click)="onSubmit()">Guardar</button>
+        <button mat-button class="btn-dialog btn-accept-dialog" *ngIf="view=='update'" (click)="onSubmitUpdate()">Actualizar</button>
+    </div>
+</mat-dialog-actions>

@@ -1,1 +1,97 @@
 /* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Generales */
+.content-loader {
+    display: flex;
+    position: absolute;
+    /* top: 56px; */
+    top:0;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    justify-content: center;
+    align-items: center;
+    background: rgb(255 255 255 / 67%);
+    z-index: 10001;
+}
+.shadow{
+  box-shadow: 3px 3px 10px 0px #d6d6d6 !important;
+}
+h2.no-result{
+  font-size: 18px;
+  font-weight: 200;
+}
+
+/* Iconos */
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+/* Dialogs */
+.container-header-dialog {
+  position: relative;
+}
+span.dialog-close {
+  position: absolute;
+  top: 0;
+  right: 5px;
+  color: #c51919;
+  border: 1.5px solid #c51919;
+  border-radius: 50%;
+  font-weight: 600;
+  cursor: pointer;
+}
+.title-dialog {
+  font-weight: 300;
+  font-size: 26px;
+  border-bottom: 1px solid #e3e3e3;
+  padding: 0px 0px 8px;
+}
+.btn-dialog{
+  margin: 5px;
+  border-radius: 5px;
+  font-weight: 300;
+  background: white;
+  outline: none;
+}
+.btn-dialog.btn-cancel-dialog{
+  border: 2px solid #c50505;
+  color: #c50505;
+}
+button.btn-dialog.btn-cancel-dialog:hover {
+  background: #c50505;
+  color: white;
+  transition: 0.3s all ease;
+}
+.btn-dialog.btn-accept-dialog{
+  border: 2px solid #0b8f04;
+  color: #0b8f04;
+}
+/* vista dialogos */
+dd {
+  padding-left: 8px;
+  font-size: 16px !important;
+  color: #4b4b4b;
+  font-weight: 200;
+}
+dt {
+  font-size: 16px;
+  font-weight: 400 !important;
+  color: #4e4e4e;
+}
+
+/* Formularios */
+.mat-form-field{
+  display: block !important;
+}
+
+/* Sweet alerts */
+.swal2-title{
+  font-weight: 300 !important;
+}
